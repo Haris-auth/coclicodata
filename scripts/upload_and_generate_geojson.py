@@ -35,13 +35,14 @@ if __name__ == "__main__":
     MAPBOX_PROJ = "global-data-viewer"
 
     # hard-coded input params at project level
-    coclico_data_dir = pathlib.Path(p_drive, "11205479-coclico", "data")
+    coclico_data_dir = pathlib.Path(p_drive, "11205479-coclico", "FASTTRACK_DATA")
     dataset_dir = coclico_data_dir.joinpath("01_storm_surge_jrc")
+    
     IN_FILENAME = "CoastAlRisk_Europe_EESSL.zarr"  # original filename as on P drive
     OUT_FILENAME = (  # file name in the cloud and on MapBox
         "europe_storm_surge_level.zarr"
     )
-    VARIABLES = ["ssl"]
+    VARIABLES = ["ssl"] 
     ADDITIONAL_DIMENSIONS = [
         "rp",
         "scenarios",
@@ -67,13 +68,13 @@ if __name__ == "__main__":
     # upload data to gcs from local drive
     source_data_fp = dataset_dir.joinpath(IN_FILENAME)
 
-    dataset_to_google_cloud(
-        ds=source_data_fp,
-        gcs_project=GCS_PROJECT,
-        bucket_name=BUCKET_NAME,
-        bucket_proj=BUCKET_PROJ,
-        zarr_filename=OUT_FILENAME,
-    )
+    # dataset_to_google_cloud(
+    #     ds=source_data_fp,
+    #     gcs_project=GCS_PROJECT,
+    #     bucket_name=BUCKET_NAME,
+    #     bucket_proj=BUCKET_PROJ,
+    #     zarr_filename=OUT_FILENAME,
+    # )
 
     # read data from gcs
     ds = dataset_from_google_cloud(
@@ -93,7 +94,7 @@ if __name__ == "__main__":
     ds = rm_special_characters(
         ds=ds, dimensions_to_check=ADDITIONAL_DIMENSIONS, characters=["%"]
     )
-
+    
     # This dataset has quite some dimensions, so if we would parse all information the end-user
     # would be overwhelmed by all options. So for the stac items that we generate for the frontend
     # visualizations a subset of the data is selected. Of course, this operation is dataset specific.
@@ -109,6 +110,7 @@ if __name__ == "__main__":
 
     dimvals = get_dimension_values(ds, dimensions_to_ignore=DIMENSIONS_TO_IGNORE)
     dimcombs = get_dimension_dot_product(dimvals)
+
 
     for var in VARIABLES:
         collection = get_geojson(

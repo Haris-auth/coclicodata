@@ -14,6 +14,7 @@ class CredentialLeakageWarning(Warning):
 
 
 def load_env_variables(env_var_keys: list = list()) -> None:
+    rel_root = pathlib.Path(r'P:\1000545-054-globalbeaches\15_GlobalCoastalAtlas\global-coastal-atlas')
     env_fpath = rel_root.joinpath(".env")
     if not env_fpath.exists():
         raise FileNotFoundError(
