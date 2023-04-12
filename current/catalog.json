@@ -78,9 +78,15 @@
         },
         {
             "rel": "child",
-            "href": "./shore_mon/collection.json",
+            "href": "./shore_mon_hr/collection.json",
             "type": "application/json",
-            "title": "The Shoreline Monitor"
+            "title": "The Shoreline Monitor High Resolution"
+        },
+        {
+            "rel": "child",
+            "href": "./shore_mon_fut/collection.json",
+            "type": "application/json",
+            "title": "The Shoreline Monitor Future Projections"
         }
     ],
     "assets": {
