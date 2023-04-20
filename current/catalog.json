@@ -72,9 +72,33 @@
         },
         {
             "rel": "child",
+            "href": "./shore_mon_fut/collection.json",
+            "type": "application/json",
+            "title": "The Shoreline Monitor Future Projections"
+        },
+        {
+            "rel": "child",
+            "href": "./sed_class/collection.json",
+            "type": "application/json",
+            "title": "Beach Sediment Classification"
+        },
+        {
+            "rel": "child",
             "href": "./shore_mon/collection.json",
             "type": "application/json",
             "title": "The Shoreline Monitor"
+        },
+        {
+            "rel": "child",
+            "href": "./world_pop/collection.json",
+            "type": "application/json",
+            "title": "World Population"
+        },
+        {
+            "rel": "child",
+            "href": "./world_gdp/collection.json",
+            "type": "application/json",
+            "title": "World Gridded GDP"
         },
         {
             "rel": "child",
@@ -84,9 +108,9 @@
         },
         {
             "rel": "child",
-            "href": "./shore_mon_fut/collection.json",
+            "href": "./shore_mon_drivers/collection.json",
             "type": "application/json",
-            "title": "The Shoreline Monitor Future Projections"
+            "title": "The Shoreline Monitor Drivers"
         }
     ],
     "assets": {

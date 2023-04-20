@@ -1,8 +1,8 @@
 {
     "type": "Collection",
-    "id": "shore_mon_hr",
+    "id": "sed_class",
     "stac_version": "1.0.0",
-    "description": "The Shoreline Monitor High Resolution is a dataset of areas with high variability in shoreline development and similar characteristics in space and time (Kras, 2019), also called hotspots. This dataset is derived from the original Shoreline Monitor (Luijendijk, 2018).  This modified high-resolution dataset contains about 60.000 transects from the 1.8 million original amount with monthly rather than annual temporal SDS resolution.",
+    "description": "The Beach Sediment Classification dataset indicates for a global 500-m spaced shore-normal transect system the sediment composition of the beach at a certain transect. Transects can be either labelled as sandy, muddy, vegetated a coastal cliff or other. The dataset is generated using a supervised random forest classificier (Breiman, 2001) which is trained on uniform coastal features. Coastal features are derived from sattelite image pixels and other parameters (e.g. tidal range)",
     "links": [
         {
             "rel": "root",
@@ -48,8 +48,8 @@
         "lon": {
             "axis": "x",
             "extent": [
-                -132.490895,
-                176.920454
+                -179.3361223993237,
+                179.66654984811606
             ],
             "description": "Longitude",
             "reference_system": "EPSG:4326",
@@ -58,8 +58,8 @@
         "lat": {
             "axis": "y",
             "extent": [
-                -54.91724,
-                66.240552
+                -57.82605171241328,
+                66.41442340485328
             ],
             "description": "Latitude",
             "reference_system": "EPSG:4326",
@@ -67,50 +67,24 @@
         }
     },
     "cube:variables": {
-        "changerate": {
-            "type": "auxiliary",
-            "description": "Changerate",
-            "dimensions": [
-                "stations"
-            ],
-            "unit": "m/yr",
-            "attrs": {
-                "long_name": "Changerate",
-                "units": "m/yr"
-            },
-            "shape": [
-                60637
-            ],
-            "chunks": [
-                60637
-            ]
-        },
-        "hotspot_id": {
+        "continent": {
             "type": "auxiliary",
             "dimensions": [
                 "stations"
             ],
             "attrs": {},
             "shape": [
-                60637
+                1826995
             ]
         },
-        "intercept": {
+        "country": {
             "type": "auxiliary",
-            "description": "Intercept",
             "dimensions": [
                 "stations"
             ],
-            "unit": "m",
-            "attrs": {
-                "long_name": "Intercept",
-                "units": "m"
-            },
+            "attrs": {},
             "shape": [
-                60637
-            ],
-            "chunks": [
-                60637
+                1826995
             ]
         },
         "lat": {
@@ -126,10 +100,10 @@
                 "units": "degrees_north"
             },
             "shape": [
-                60637
+                1826995
             ],
             "chunks": [
-                30319
+                57094
             ]
         },
         "lon": {
@@ -145,50 +119,26 @@
                 "units": "degrees_east"
             },
             "shape": [
-                60637
+                1826995
             ],
             "chunks": [
-                30319
+                57094
             ]
         },
-        "outliers": {
+        "sediment_label": {
             "type": "data",
-            "description": "Outliers detection method 1",
+            "description": "Sediment Label",
             "dimensions": [
-                "stations",
-                "time"
+                "stations"
             ],
             "attrs": {
-                "long_name": "Outliers detection method 1"
+                "long_name": "Sediment Label"
             },
             "shape": [
-                60637,
-                452
+                1826995
             ],
             "chunks": [
-                3790,
-                57
-            ]
-        },
-        "sp": {
-            "type": "data",
-            "description": "Shoreline Position",
-            "dimensions": [
-                "stations",
-                "time"
-            ],
-            "unit": "m",
-            "attrs": {
-                "long_name": "Shoreline Position",
-                "units": "m"
-            },
-            "shape": [
-                60637,
-                452
-            ],
-            "chunks": [
-                3790,
-                57
+                114188
             ]
         },
         "transect_geom": {
@@ -198,7 +148,7 @@
             ],
             "attrs": {},
             "shape": [
-                60637
+                1826995
             ]
         },
         "transect_id": {
@@ -208,11 +158,11 @@
             ],
             "attrs": {},
             "shape": [
-                60637
+                1826995
             ]
         }
     },
-    "title": "The Shoreline Monitor High Resolution",
+    "title": "Beach Sediment Classification",
     "extent": {
         "spatial": {
             "bbox": [
@@ -250,9 +200,9 @@
     ],
     "assets": {
         "data": {
-            "href": "https://storage.googleapis.com/dgds-data-public/gca/shoreline_monitor_hr.zarr",
-            "title": "shore_mon_hr zarr root",
-            "description": "The root of the shore_mon_hr zarr dataset on public Google Cloud Storage.",
+            "href": "https://storage.googleapis.com/dgds-data-public/gca/beachsed_class.zarr",
+            "title": "sed_class zarr root",
+            "description": "The root of the sed_class zarr dataset on public Google Cloud Storage.",
             "roles": [
                 "data",
                 "zarr-root",

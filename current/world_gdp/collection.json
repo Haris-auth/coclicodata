@@ -1,8 +1,8 @@
 {
     "type": "Collection",
-    "id": "shore_mon_hr",
+    "id": "world_gdp",
     "stac_version": "1.0.0",
-    "description": "The Shoreline Monitor High Resolution is a dataset of areas with high variability in shoreline development and similar characteristics in space and time (Kras, 2019), also called hotspots. This dataset is derived from the original Shoreline Monitor (Luijendijk, 2018).  This modified high-resolution dataset contains about 60.000 transects from the 1.8 million original amount with monthly rather than annual temporal SDS resolution.",
+    "description": "The World Gridded GDP dataset contatins GDP per capita estimates at grids with a spatial resolution of 0.5 degree (approximately 50 km at the equator). The GDP data was obtained by integrating sub-national GDP data from various sources such as national statistics offices, the World Bank, and other international organizations. Also spatial data such as night-time light data and land cover data was used to estimate GDP values in areas where no sub-national data was available.",
     "links": [
         {
             "rel": "root",
@@ -48,8 +48,8 @@
         "lon": {
             "axis": "x",
             "extent": [
-                -132.490895,
-                176.920454
+                -179.33421444099997,
+                179.665408928
             ],
             "description": "Longitude",
             "reference_system": "EPSG:4326",
@@ -58,8 +58,8 @@
         "lat": {
             "axis": "y",
             "extent": [
-                -54.91724,
-                66.240552
+                -55.97349167300001,
+                66.4159042598
             ],
             "description": "Latitude",
             "reference_system": "EPSG:4326",
@@ -67,50 +67,40 @@
         }
     },
     "cube:variables": {
-        "changerate": {
-            "type": "auxiliary",
-            "description": "Changerate",
-            "dimensions": [
-                "stations"
-            ],
-            "unit": "m/yr",
-            "attrs": {
-                "long_name": "Changerate",
-                "units": "m/yr"
-            },
-            "shape": [
-                60637
-            ],
-            "chunks": [
-                60637
-            ]
-        },
-        "hotspot_id": {
+        "continent": {
             "type": "auxiliary",
             "dimensions": [
                 "stations"
             ],
             "attrs": {},
             "shape": [
-                60637
+                1709733
             ]
         },
-        "intercept": {
+        "country": {
             "type": "auxiliary",
-            "description": "Intercept",
             "dimensions": [
                 "stations"
             ],
-            "unit": "m",
+            "attrs": {},
+            "shape": [
+                1709733
+            ]
+        },
+        "gdp": {
+            "type": "data",
+            "description": "GDP per capita",
+            "dimensions": [
+                "stations"
+            ],
             "attrs": {
-                "long_name": "Intercept",
-                "units": "m"
+                "long_name": "GDP per capita"
             },
             "shape": [
-                60637
+                1709733
             ],
             "chunks": [
-                60637
+                53430
             ]
         },
         "lat": {
@@ -126,10 +116,10 @@
                 "units": "degrees_north"
             },
             "shape": [
-                60637
+                1709733
             ],
             "chunks": [
-                30319
+                53430
             ]
         },
         "lon": {
@@ -145,50 +135,10 @@
                 "units": "degrees_east"
             },
             "shape": [
-                60637
+                1709733
             ],
             "chunks": [
-                30319
-            ]
-        },
-        "outliers": {
-            "type": "data",
-            "description": "Outliers detection method 1",
-            "dimensions": [
-                "stations",
-                "time"
-            ],
-            "attrs": {
-                "long_name": "Outliers detection method 1"
-            },
-            "shape": [
-                60637,
-                452
-            ],
-            "chunks": [
-                3790,
-                57
-            ]
-        },
-        "sp": {
-            "type": "data",
-            "description": "Shoreline Position",
-            "dimensions": [
-                "stations",
-                "time"
-            ],
-            "unit": "m",
-            "attrs": {
-                "long_name": "Shoreline Position",
-                "units": "m"
-            },
-            "shape": [
-                60637,
-                452
-            ],
-            "chunks": [
-                3790,
-                57
+                53430
             ]
         },
         "transect_geom": {
@@ -198,7 +148,7 @@
             ],
             "attrs": {},
             "shape": [
-                60637
+                1709733
             ]
         },
         "transect_id": {
@@ -208,11 +158,11 @@
             ],
             "attrs": {},
             "shape": [
-                60637
+                1709733
             ]
         }
     },
-    "title": "The Shoreline Monitor High Resolution",
+    "title": "World Gridded GDP",
     "extent": {
         "spatial": {
             "bbox": [
@@ -250,9 +200,9 @@
     ],
     "assets": {
         "data": {
-            "href": "https://storage.googleapis.com/dgds-data-public/gca/shoreline_monitor_hr.zarr",
-            "title": "shore_mon_hr zarr root",
-            "description": "The root of the shore_mon_hr zarr dataset on public Google Cloud Storage.",
+            "href": "https://storage.googleapis.com/dgds-data-public/gca/world_gdp.zarr",
+            "title": "world_gdp zarr root",
+            "description": "The root of the world_gdp zarr dataset on public Google Cloud Storage.",
             "roles": [
                 "data",
                 "zarr-root",

@@ -1,8 +1,8 @@
 {
     "type": "Collection",
-    "id": "shore_mon_hr",
+    "id": "world_pop",
     "stac_version": "1.0.0",
-    "description": "The Shoreline Monitor High Resolution is a dataset of areas with high variability in shoreline development and similar characteristics in space and time (Kras, 2019), also called hotspots. This dataset is derived from the original Shoreline Monitor (Luijendijk, 2018).  This modified high-resolution dataset contains about 60.000 transects from the 1.8 million original amount with monthly rather than annual temporal SDS resolution.",
+    "description": "The World Population dataset provides a global population count per pixel at ~100 m resolution. The dataset is based on UNDP 2020 estimates for in total 183 countries.",
     "links": [
         {
             "rel": "root",
@@ -48,8 +48,8 @@
         "lon": {
             "axis": "x",
             "extent": [
-                -132.490895,
-                176.920454
+                -179.33421444099997,
+                179.665408928
             ],
             "description": "Longitude",
             "reference_system": "EPSG:4326",
@@ -58,8 +58,8 @@
         "lat": {
             "axis": "y",
             "extent": [
-                -54.91724,
-                66.240552
+                -55.97349167300001,
+                66.4159042598
             ],
             "description": "Latitude",
             "reference_system": "EPSG:4326",
@@ -67,50 +67,24 @@
         }
     },
     "cube:variables": {
-        "changerate": {
-            "type": "auxiliary",
-            "description": "Changerate",
-            "dimensions": [
-                "stations"
-            ],
-            "unit": "m/yr",
-            "attrs": {
-                "long_name": "Changerate",
-                "units": "m/yr"
-            },
-            "shape": [
-                60637
-            ],
-            "chunks": [
-                60637
-            ]
-        },
-        "hotspot_id": {
+        "continent": {
             "type": "auxiliary",
             "dimensions": [
                 "stations"
             ],
             "attrs": {},
             "shape": [
-                60637
+                1723302
             ]
         },
-        "intercept": {
+        "country": {
             "type": "auxiliary",
-            "description": "Intercept",
             "dimensions": [
                 "stations"
             ],
-            "unit": "m",
-            "attrs": {
-                "long_name": "Intercept",
-                "units": "m"
-            },
+            "attrs": {},
             "shape": [
-                60637
-            ],
-            "chunks": [
-                60637
+                1723302
             ]
         },
         "lat": {
@@ -126,10 +100,10 @@
                 "units": "degrees_north"
             },
             "shape": [
-                60637
+                1723302
             ],
             "chunks": [
-                30319
+                53854
             ]
         },
         "lon": {
@@ -145,50 +119,74 @@
                 "units": "degrees_east"
             },
             "shape": [
-                60637
+                1723302
             ],
             "chunks": [
-                30319
+                53854
             ]
         },
-        "outliers": {
+        "pop_10_m": {
             "type": "data",
-            "description": "Outliers detection method 1",
+            "description": "Population below 10 m MSL",
             "dimensions": [
-                "stations",
-                "time"
+                "stations"
             ],
             "attrs": {
-                "long_name": "Outliers detection method 1"
+                "long_name": "Population below 10 m MSL"
             },
             "shape": [
-                60637,
-                452
+                1723302
             ],
             "chunks": [
-                3790,
-                57
+                53854
             ]
         },
-        "sp": {
+        "pop_1_m": {
             "type": "data",
-            "description": "Shoreline Position",
+            "description": "Population below 1 m MSL",
             "dimensions": [
-                "stations",
-                "time"
+                "stations"
             ],
-            "unit": "m",
             "attrs": {
-                "long_name": "Shoreline Position",
-                "units": "m"
+                "long_name": "Population below 1 m MSL"
             },
             "shape": [
-                60637,
-                452
+                1723302
             ],
             "chunks": [
-                3790,
-                57
+                53854
+            ]
+        },
+        "pop_5_m": {
+            "type": "data",
+            "description": "Population below 5 m MSL",
+            "dimensions": [
+                "stations"
+            ],
+            "attrs": {
+                "long_name": "Population below 5 m MSL"
+            },
+            "shape": [
+                1723302
+            ],
+            "chunks": [
+                53854
+            ]
+        },
+        "pop_tot": {
+            "type": "data",
+            "description": "Total population",
+            "dimensions": [
+                "stations"
+            ],
+            "attrs": {
+                "long_name": "Total population"
+            },
+            "shape": [
+                1723302
+            ],
+            "chunks": [
+                53854
             ]
         },
         "transect_geom": {
@@ -198,7 +196,7 @@
             ],
             "attrs": {},
             "shape": [
-                60637
+                1723302
             ]
         },
         "transect_id": {
@@ -208,11 +206,11 @@
             ],
             "attrs": {},
             "shape": [
-                60637
+                1723302
             ]
         }
     },
-    "title": "The Shoreline Monitor High Resolution",
+    "title": "World Population",
     "extent": {
         "spatial": {
             "bbox": [
@@ -250,9 +248,9 @@
     ],
     "assets": {
         "data": {
-            "href": "https://storage.googleapis.com/dgds-data-public/gca/shoreline_monitor_hr.zarr",
-            "title": "shore_mon_hr zarr root",
-            "description": "The root of the shore_mon_hr zarr dataset on public Google Cloud Storage.",
+            "href": "https://storage.googleapis.com/dgds-data-public/gca/world_pop.zarr",
+            "title": "world_pop zarr root",
+            "description": "The root of the world_pop zarr dataset on public Google Cloud Storage.",
             "roles": [
                 "data",
                 "zarr-root",
